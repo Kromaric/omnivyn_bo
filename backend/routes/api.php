@@ -9,6 +9,11 @@ use App\Http\Controllers\Api\MissionController;
 use App\Http\Controllers\Api\PaiementController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\ContratController;
+use App\Http\Controllers\Api\MobileInterimaireController;
+
+// ========================================
+// ROUTES WEB APP (Admin & Entreprises)
+// ========================================
 
 // Routes publiques
 Route::post('/register', [AuthController::class, 'register']);
@@ -50,4 +55,45 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('contrats', ContratController::class);
     Route::post('contrats/{id}/signer-entreprise', [ContratController::class, 'signerEntreprise']);
     Route::post('contrats/{id}/signer-interimaire', [ContratController::class, 'signerInterimaire']);
+});
+
+// ========================================
+// ROUTES MOBILE APP (Intérimaires)
+// ========================================
+
+Route::prefix('mobile')->group(function () {
+    
+    // Routes publiques
+    Route::post('/register', [MobileInterimaireController::class, 'register']);
+    Route::post('/login', [MobileInterimaireController::class, 'login']);
+    
+    // Routes protégées
+    Route::middleware('auth:sanctum')->group(function () {
+        
+        // Authentification
+        Route::post('/logout', [MobileInterimaireController::class, 'logout']);
+        Route::get('/profile', [MobileInterimaireController::class, 'profile']);
+        Route::put('/profile', [MobileInterimaireController::class, 'updateProfile']);
+        
+        // Dashboard
+        Route::get('/dashboard', [MobileInterimaireController::class, 'dashboard']);
+        
+        // Missions
+        Route::get('/missions/disponibles', [MobileInterimaireController::class, 'missionsDisponibles']);
+        Route::get('/missions/{id}', [MobileInterimaireController::class, 'missionDetails']);
+        Route::post('/missions/{id}/postuler', [MobileInterimaireController::class, 'postulerMission']);
+        Route::get('/mes-missions', [MobileInterimaireController::class, 'mesMissions']);
+        
+        // Contrats
+        Route::get('/contrats', [MobileInterimaireController::class, 'mesContrats']);
+        Route::get('/contrats/{id}', [MobileInterimaireController::class, 'contratDetails']);
+        Route::post('/contrats/{id}/signer', [MobileInterimaireController::class, 'signerContrat']);
+        
+        // Paiements
+        Route::get('/paiements', [MobileInterimaireController::class, 'mesPaiements']);
+        
+        // Documents
+        Route::get('/documents', [MobileInterimaireController::class, 'mesDocuments']);
+        Route::post('/documents/upload', [MobileInterimaireController::class, 'uploadDocument']);
+    });
 });

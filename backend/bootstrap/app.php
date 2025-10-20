@@ -21,12 +21,27 @@ return Application::configure(basePath: dirname(__DIR__))
         }
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Middleware global pour les routes API
         $middleware->group('api', [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);
+
+        // Utiliser notre middleware Authenticate personnalisé
+        $middleware->alias([
+            'auth' => \App\Http\Middleware\Authenticate::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        // Gestion des exceptions pour l'API
+        $exceptions->render(function (\Illuminate\Auth\AuthenticationException $e, Request $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Non authentifié. Veuillez vous connecter.',
+                    'error' => 'Unauthenticated'
+                ], 401);
+            }
+        });
     })->create();
