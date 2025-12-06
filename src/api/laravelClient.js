@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
 // URL de l'API Laravel
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
+const API_URL = import.meta.env.VITE_API_URL || "http://10.119.5.232:8000/api";
 
 // Créer une instance axios
 const laravelClient = axios.create({
   baseURL: API_URL,
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
   withCredentials: false,
 });
@@ -16,7 +16,7 @@ const laravelClient = axios.create({
 // Intercepteur pour ajouter le token à chaque requête
 laravelClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('auth_token');
+    const token = localStorage.getItem("auth_token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -33,8 +33,8 @@ laravelClient.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       // Rediriger vers login si non authentifié
-      localStorage.removeItem('auth_token');
-      localStorage.removeItem('user');
+      localStorage.removeItem("auth_token");
+      localStorage.removeItem("user");
       // Optionnel: rediriger vers la page de login
       // window.location.href = '/login';
     }
