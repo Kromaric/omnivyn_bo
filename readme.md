@@ -4,7 +4,7 @@ Application complète de gestion d'intérim avec backend Laravel et frontend Rea
 
 ---
 
-## 🚀 Démarrage Rapide
+##  Démarrage Rapide
 
 ```bash
 # 1. Installer axios pour le frontend
@@ -29,15 +29,15 @@ npm run dev
 
 ## 📋 Fonctionnalités
 
-### ✨ Gestion complète
-- 👥 **Entreprises** - Gestion des clients
-- 💼 **Intérimaires** - Gestion des travailleurs
-- 🎯 **Missions** - Création et suivi des missions
-- 💰 **Paiements** - Validation et suivi des paiements
-- 📄 **Documents** - Upload et gestion des documents
-- 📝 **Contrats** - Génération et signature électronique
+###  Gestion complète
+-  **Entreprises** - Gestion des clients
+-  **Intérimaires** - Gestion des travailleurs
+-  **Missions** - Création et suivi des missions
+-  **Paiements** - Validation et suivi des paiements
+-  **Documents** - Upload et gestion des documents
+-  **Contrats** - Génération et signature électronique
 
-### 🔐 Sécurité
+### Sécurité
 - Authentification JWT avec Laravel Sanctum
 - Rôles et permissions (admin, entreprise, interimaire)
 - Validation des données
@@ -93,20 +93,14 @@ Omnivyn Intérim/
 │   ├── pages/
 │   └── main.jsx
 │
-└── Documentation/
-    ├── DEMARRAGE_RAPIDE.md
-    ├── FRONTEND_CONNECTION_GUIDE.md
-    ├── RECAP_FINAL.md
-    └── backend/
-        ├── API_README.md
-        └── MIGRATION_GUIDE.md
+
 ```
 
 ---
 
 ## 📖 Documentation
 
-### 🚀 Pour commencer
+### Pour commencer
 - **[DEMARRAGE_RAPIDE.md](DEMARRAGE_RAPIDE.md)** - Guide d'installation en 5 minutes
 
 ### 🔌 Frontend
@@ -119,14 +113,14 @@ Omnivyn Intérim/
 - Tous les endpoints avec exemples
 - Format des requêtes et réponses
 
-### 📊 Vue d'ensemble
+### Vue d'ensemble
 - **[RECAP_FINAL.md](RECAP_FINAL.md)** - Architecture complète du projet
 - Liste de tous les fichiers créés
 - Tests et vérifications
 
 ---
 
-## 🔐 Comptes de Test
+## Comptes de Test
 
 ### Admin
 ```
@@ -151,7 +145,7 @@ pierre.dubois@example.fr / password
 
 ---
 
-## 📊 Données de Test
+## Données de Test
 
 La base de données est pré-remplie avec :
 - **17 utilisateurs** (1 admin, 3 entreprises, 3 intérimaires, 10 autres)
@@ -164,7 +158,7 @@ La base de données est pré-remplie avec :
 
 ---
 
-## 🧪 Tests
+## Tests
 
 ### Backend
 ```bash
@@ -191,7 +185,7 @@ curl http://localhost:8000/api/missions \
 
 ---
 
-## 🚀 Déploiement
+## Déploiement
 
 ### Backend Laravel
 
@@ -284,7 +278,7 @@ npm run lint
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### CORS Error
 Vérifiez `backend/config/cors.php` et assurez-vous que le backend tourne.
@@ -300,7 +294,7 @@ Redémarrez les serveurs après modification des fichiers de configuration.
 
 ---
 
-## 📚 Ressources
+## Ressources
 
 - [Documentation Laravel](https://laravel.com/docs)
 - [Documentation React](https://react.dev)
@@ -310,11 +304,6 @@ Redémarrez les serveurs après modification des fichiers de configuration.
 
 ---
 
-## 🤝 Contribution
-
-Ce projet est une migration de Base44 vers une architecture indépendante Laravel + React.
-
----
 
 ## 📄 Licence
 
@@ -322,7 +311,7 @@ MIT License
 
 ---
 
-## 👥 Support
+##  Support
 
 Pour toute question ou problème :
 1. Consultez la documentation dans le dossier du projet
@@ -331,7 +320,7 @@ Pour toute question ou problème :
 
 ---
 
-## ✨ Fonctionnalités à venir
+##  Fonctionnalités à venir
 
 - [ ] Notifications en temps réel (websockets)
 - [ ] Export PDF des documents
@@ -342,11 +331,11 @@ Pour toute question ou problème :
 
 ---
 
-## 🎉 Remerciements
+## Remerciements
 
 Merci d'utiliser Omnivyn Intérim !
 
-**L'application est maintenant 100% indépendante et prête pour la production.** 🚀
+**L'application est maintenant 100% indépendante et prête pour la production.** 
 
 ---
 
